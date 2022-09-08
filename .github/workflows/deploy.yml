@@ -3,10 +3,12 @@
 name: CI
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-        run: deploy.sh
+        - run: deploy.sh
