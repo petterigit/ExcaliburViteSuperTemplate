@@ -11,4 +11,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-        - run: deploy.sh
+        - name: Run deploy script
+          run: ./.github/deploy.sh
+          shell: bash
