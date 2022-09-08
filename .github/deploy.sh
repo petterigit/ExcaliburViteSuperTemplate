@@ -3,6 +3,8 @@
 # abort on errors
 set -e
 
+cd ..
+
 # build
 npm run build
 
