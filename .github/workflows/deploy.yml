@@ -12,5 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Run deploy script
-          run: ./.github/deploy.sh
+          run: |
+               | ls
+               | ./.github/deploy.sh
           shell: bash
