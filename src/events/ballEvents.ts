@@ -1,20 +1,28 @@
 import { Actor } from "excalibur";
+import { Sounds } from "../sounds/sounds";
 
 interface Props {
 	ball: Actor;
 	bricks: Actor[];
+	sounds: Sounds;
 }
 
 export const ballEvents = (props: Props) => {
-	const { ball, bricks } = props;
+	const { ball, bricks, sounds } = props;
+
 	let colliding = false;
-	console.log(colliding);
-	ball.on("collisionstart", function (ev) {
-		if (bricks.indexOf(ev.other) > -1) {
-			ev.other.kill();
+
+	ball.on("collisionstart", (event) => {
+		const hitBrick = bricks.includes(event.other);
+
+		if (hitBrick) {
+			sounds.viisKauttaViis.play(0.75);
+			event.other.kill();
+		} else {
+			sounds.onSound.play(0.5);
 		}
 
-		var intersection = ev.contact.mtv.normalize();
+		var intersection = event.contact.mtv.normalize();
 
 		if (!colliding) {
 			colliding = true;
@@ -31,6 +39,6 @@ export const ballEvents = (props: Props) => {
 	});
 
 	ball.on("exitviewport", () => {
-		alert("You lose!");
+		sounds.aijaijai.play(1);
 	});
 };
