@@ -1,10 +1,11 @@
 import { Actor, Engine } from "excalibur";
+import { Ball } from "../objects/ball";
 import { Sounds } from "../sounds/sounds";
 import { ballEvents } from "./ballEvents";
 import { inputs } from "./inputs";
 
 interface GameObjects {
-	ball: Actor;
+	ball: Ball;
 	paddle: Actor;
 	bricks: Actor[];
 }

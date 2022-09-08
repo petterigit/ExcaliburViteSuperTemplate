@@ -1,8 +1,9 @@
 import { Actor } from "excalibur";
+import { Ball } from "../objects/ball";
 import { Sounds } from "../sounds/sounds";
 
 interface Props {
-	ball: Actor;
+	ball: Ball;
 	bricks: Actor[];
 	sounds: Sounds;
 }
@@ -10,7 +11,7 @@ interface Props {
 export const ballEvents = (props: Props) => {
 	const { ball, bricks, sounds } = props;
 
-	let colliding = false;
+	ball.colliding = false;
 
 	ball.on("collisionstart", (event) => {
 		const hitBrick = bricks.includes(event.other);
@@ -24,8 +25,8 @@ export const ballEvents = (props: Props) => {
 
 		var intersection = event.contact.mtv.normalize();
 
-		if (!colliding) {
-			colliding = true;
+		if (!ball.colliding) {
+			ball.colliding = true;
 			if (Math.abs(intersection.x) > Math.abs(intersection.y)) {
 				ball.vel.x *= -1;
 			} else {
@@ -35,7 +36,7 @@ export const ballEvents = (props: Props) => {
 	});
 
 	ball.on("collisionend", () => {
-		colliding = false;
+		ball.colliding = false;
 	});
 
 	ball.on("exitviewport", () => {

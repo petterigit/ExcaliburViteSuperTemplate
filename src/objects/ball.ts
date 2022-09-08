@@ -1,32 +1,32 @@
-import { Actor, CollisionType, Color, Engine, vec } from "excalibur";
+import { Actor, ActorArgs, CollisionType, Engine, vec, Vector } from "excalibur";
 
-export const createBall = (game: Engine) => {
-	const ball = new Actor({
-		x: 100,
-		y: 300,
-		radius: 10,
-		color: Color.Red,
-	});
+export class Ball extends Actor {
+	public ballSpeed: Vector = vec(100, 100);
+	private _colliding: boolean = false;
 
-	ball.body.collisionType = CollisionType.Passive;
+	constructor(args: ActorArgs, game: Engine) {
+		super(args);
+		this.body.collisionType = CollisionType.Passive;
+		this.vel = this.ballSpeed;
 
-	setTimeout(() => {
-		ball.vel = ballSpeed;
-	}, 1000);
+		this.on("postupdate", () => {
+			if (this.pos.x < this.width / 2) {
+				this.vel.x = this.ballSpeed.x;
+			}
+			if (this.pos.x + this.width / 2 > game.drawWidth) {
+				this.vel.x = this.ballSpeed.x * -1;
+			}
+			if (this.pos.y < this.height / 2) {
+				this.vel.y = this.ballSpeed.y;
+			}
+		});
+	}
 
-	ball.on("postupdate", () => {
-		if (ball.pos.x < ball.width / 2) {
-			ball.vel.x = ballSpeed.x;
-		}
-		if (ball.pos.x + ball.width / 2 > game.drawWidth) {
-			ball.vel.x = ballSpeed.x * -1;
-		}
-		if (ball.pos.y < ball.height / 2) {
-			ball.vel.y = ballSpeed.y;
-		}
-	});
+	public get colliding() {
+		return this._colliding;
+	}
 
-	return ball;
-};
-
-export const ballSpeed = vec(100, 100);
+	public set colliding(arg: boolean) {
+		this._colliding = arg;
+	}
+}
