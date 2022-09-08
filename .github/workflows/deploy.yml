@@ -13,6 +13,6 @@ jobs:
     steps:
         - name: Run deploy script
           run: |
-               | ls
-               | ./.github/deploy.sh
+              ls
+              ./.github/deploy.sh
           shell: bash
