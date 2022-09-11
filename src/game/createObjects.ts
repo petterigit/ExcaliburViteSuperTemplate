@@ -10,7 +10,7 @@ export const createObjects = (game: Engine) => {
 			x: 100,
 			y: 300,
 			radius: 10,
-			color: Color.Red,
+			color: Color.Rose,
 		},
 		game
 	);
