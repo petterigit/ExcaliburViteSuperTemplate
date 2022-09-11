@@ -1,6 +1,16 @@
-import { gameCanvasID } from "../consts";
+import { gameCanvasID, gameContainerID, gameStartButtonID } from "../consts";
 
 export const createSite = () => {
+	const mediaQuery = window.matchMedia("(min-width: 700px)");
+	if (!mediaQuery.matches) {
+		/* If on mobile 
+			"ratti pohjaan excalibur ohjaa"
+			"let excalibur take the wheel"
+			i.e. just show full screen, no need for anything else
+		*/
+		return;
+	}
+
 	const siteMain = document.getElementById("app");
 	if (!siteMain) {
 		throw "Document main must have id 'app'!";
@@ -8,13 +18,19 @@ export const createSite = () => {
 
 	siteMain.className = "siteMain";
 
-	const siteContainer = document.createElement("div");
-	siteContainer.className = "gameContainer";
+	const gameContainer = document.createElement("div");
+	gameContainer.className = "gameContainer";
+	gameContainer.id = gameContainerID;
 
 	const gameCanvas = document.createElement("canvas");
-
 	gameCanvas.id = gameCanvasID;
 
-	siteContainer.appendChild(gameCanvas);
-	siteMain.appendChild(siteContainer);
+	const gameButton = document.createElement("button");
+	gameButton.id = gameStartButtonID;
+	gameButton.className = "gameStartButton";
+	gameButton.textContent = "Start the game";
+
+	gameContainer.appendChild(gameCanvas);
+	gameContainer.appendChild(gameButton);
+	siteMain.appendChild(gameContainer);
 };

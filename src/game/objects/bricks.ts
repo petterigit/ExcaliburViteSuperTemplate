@@ -2,15 +2,16 @@ import { Actor, Color, Engine } from "excalibur";
 import { createBrick } from "./brick";
 
 export const createBricks = (game: Engine) => {
+	const brickColor = [Color.Violet, Color.Orange, Color.Yellow];
+
 	const padding = 20;
-	const xoffset = 65;
-	const yoffset = 20;
-	const columns = 5;
+	const columns = 4;
 	const rows = 3;
 
-	const brickColor = [Color.Violet, Color.Orange, Color.Yellow];
-	const brickWidth = game.drawWidth / columns - padding - padding / columns; // px
-	const brickHeight = 30; // px
+	// Width = game width minus padding of each column / number of columns
+	const brickWidth = (game.drawWidth - padding * (columns + 2)) / columns;
+
+	const brickHeight = brickWidth * 0.5; // px
 
 	const bricks: Actor[] = [];
 
@@ -18,8 +19,9 @@ export const createBricks = (game: Engine) => {
 		for (let i = 0; i < columns; i++) {
 			bricks.push(
 				createBrick(
-					xoffset + i * (brickWidth + padding) + padding,
-					yoffset + j * (brickHeight + padding) + padding,
+					// place at start of brick, x columns to right, 1.5*padding from wall
+					brickWidth * 0.5 + i * (brickWidth + padding) + padding * 1.5,
+					brickHeight * 0.5 + j * (brickHeight + padding) + padding * 1.5,
 					brickWidth,
 					brickHeight,
 					brickColor[j % brickColor.length]
