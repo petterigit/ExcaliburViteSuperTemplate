@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+    
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build application
+        run: npm run build
+        
+      - name: Git Add Dist
+        run: git add dist -f
+        
+      - name: Create commit
+        run: git commit -m "Create new deployment" 
+        
+      - name: Push to gh-pages branch
+        run: git subtree push --prefix dist origin gh-pages
