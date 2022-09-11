@@ -37,4 +37,4 @@ jobs:
         run: git commit -m "Create new deployment" 
         
       - name: Push to gh-pages branch
-        run: git subtree push --prefix dist origin gh-pages
+        run: git subtree push --prefix dist origin gh-pages --force
