@@ -16,6 +16,6 @@
     "noImplicitReturns": true,
     "skipLibCheck": true
   },
-  "include": ["src", "game/game"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

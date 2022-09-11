@@ -1,0 +1,30 @@
+
+.siteMain {
+    display: flex;
+    justify-content: center;
+    background-color:dimgray;
+    width: 100%;
+    height: 100%;
+}
+
+.gameContainer {
+    margin: 2em;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    height: 70%;
+}
+
+canvas {
+    margin-left: auto;
+    margin-right: auto;
+    border: 4px solid black;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}

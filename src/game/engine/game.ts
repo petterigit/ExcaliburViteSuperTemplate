@@ -1,4 +1,5 @@
-import { Engine } from "excalibur";
+import { DisplayMode, Engine } from "excalibur";
+import { gameCanvasID } from "../../consts";
 
 export const createGame = () => {
 	const game = new Engine({
@@ -6,6 +7,8 @@ export const createGame = () => {
 			width: 800,
 			height: 600,
 		},
+		displayMode: DisplayMode.FitContainer,
+		canvasElementId: gameCanvasID,
 	});
 
 	return game;
