@@ -2,8 +2,6 @@
 
 Template for running vite - excalibur application
 
-[![Node.js CI](https://github.com/petterigit/ExcaliburViteSuperTemplate/actions/workflows/node.js.yml/badge.svg)](https://github.com/petterigit/ExcaliburViteSuperTemplate/actions/workflows/node.js.yml)
-
 
 ## Quick start
 
