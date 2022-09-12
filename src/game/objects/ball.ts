@@ -1,7 +1,7 @@
 import { Actor, ActorArgs, CollisionType, Engine, vec, Vector } from "excalibur";
 
 export class Ball extends Actor {
-	public ballSpeed: Vector = vec(200, 200);
+	public ballSpeed: Vector = vec(400, 400);
 	private _colliding: boolean = false;
 
 	constructor(args: ActorArgs, game: Engine) {

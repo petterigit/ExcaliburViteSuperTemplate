@@ -1,5 +1,4 @@
 import { Loader } from "excalibur";
-import { Buttons } from "excalibur/build/dist/Input/Gamepad";
 import { gameStartButtonID } from "../../consts";
 import { Sounds } from "../sounds/sounds";
 
