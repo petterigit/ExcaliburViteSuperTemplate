@@ -13,12 +13,19 @@ export const ballEvents = (props: Props) => {
 
 	ball.colliding = false;
 
-	ball.on("collisionstart", (event) => {
+	ball.on("collisionstart", async (event) => {
 		const hitBrick = bricks.includes(event.other);
 
 		if (hitBrick) {
 			sounds.viisKauttaViis.play(0.75);
 			event.other.kill();
+
+			const deadBricks = bricks.filter((brick) => brick.isKilled());
+
+			if (bricks.length === deadBricks.length) {
+				await new Promise((res) => setTimeout(res, 500));
+				alert("You win!");
+			}
 		} else {
 			sounds.onSound.play(0.5);
 		}
