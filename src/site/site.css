@@ -1,54 +1,52 @@
 body {
-    margin: 0;
-    overflow: hidden;
-    background-color:dimgray;
-    height: 100vh;
-    width: 100vw;
+  margin: 0;
+  overflow: hidden;
+  background-color: dimgray;
+  height: 100vh;
+  width: 100vw;
 }
 
 .siteMain {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .gameContainer {
-    margin: auto;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 canvas {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gameStartButton {
-    background-color: blueviolet;
-    border-radius: 10%;
-    border: none;
-    padding: 1em;
-    font-weight: bold;
-    font-family: monospace;
-    box-shadow: 2px 3px 1px 1px rgb(17, 17, 17);
+  background-color: blueviolet;
+  border-radius: 10%;
+  border: none;
+  padding: 1em;
+  font-weight: bold;
+  font-family: monospace;
+  box-shadow: 2px 3px 1px 1px rgb(17, 17, 17);
 
-    /* Excalibur changes this, prevents flashing before excalibur takes control */
-    display: none; 
+  /* Excalibur changes this, prevents flashing before excalibur takes control */
+  display: none;
 }
 
 @media (min-width: 700px) {
-    .gameContainer {
-        height: 80%;
-        width: 55%;
-    }
-    canvas {
-        border-radius: 20px;
-        border: 2em solid rgb(82, 82, 82);
-    }
-
+  .gameContainer {
+    height: 80%;
+    width: 55%;
+  }
+  canvas {
+    border-radius: 20px;
+    border: 2em solid rgb(82, 82, 82);
+  }
 }
-

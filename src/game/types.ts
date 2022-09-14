@@ -5,13 +5,13 @@ import { Sounds } from "./sounds/sounds";
 export type Game = Engine;
 
 export interface GameObjects {
-	ball: Ball;
-	paddle: Actor;
-	bricks: Actor[];
+  ball: Ball;
+  paddle: Actor;
+  bricks: Actor[];
 }
 
 export interface AllProps {
-	game: Game;
-	objects: GameObjects;
-	sounds: Sounds;
+  game: Game;
+  objects: GameObjects;
+  sounds: Sounds;
 }
